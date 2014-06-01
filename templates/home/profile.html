@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Profile{% endblock %}
+{% block js %}
+{% endblock %}
+{% block content %}
+<script>
+
+    </script>
+    <h2>Profile</h2>
+    {{ user.username }}
+    <br/>
+    <br/>
+
+    <div ng-app="FriendFB">
+        <div ng-controller="Controller">
+            <table class="table">
+                <tr>
+                    <th>Image</th>
+                    <th>Full name</th>
+                </tr>
+                <tr ng-repeat="friend in friends">
+                    <td><img src="// friend.photo //" alt="// friend.full_name //"/></td>
+                    <td>// friend.full_name //</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

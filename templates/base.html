@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="{% static 'css/djangular.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/angular.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/script_friend.js' %}" type="text/javascript"></script>
+</head>
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">Django-Angular-API REST</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="">
+							<a href="{% url 'go_home' %}">Home</a>
+						</li>
+                        {% if user.is_authenticated %}
+						<li class="">
+							<a href="{% url 'go_profile' %}">Profile</a>
+						</li>
+						<li class="">
+							<a href="{% url 'go_logout' %}">Logout</a>
+						</li>
+                        {% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		{% block container %}
+		<div class="row">
+			{% block content %}{% endblock%}
+		</div>
+		{% endblock container %}
+
+	</div>
+
+</body>
+</html>
